@@ -7,7 +7,7 @@ app.use(express.static(__dirname + "/dist/digital-learning-system-fe"));
 
 app.get("/*", function (req, res) {
   res.sendFile(
-    path.join(__dirname + "/dist/digital-learning-system-fe/index.html")
+    path.join(__dirname + "/dist/digital-learning-system-fe/browser/index.html")
   );
 });
 
