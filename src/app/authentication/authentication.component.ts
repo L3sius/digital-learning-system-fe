@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 @Component({
   selector: 'app-authentication',
   standalone: true,
@@ -16,7 +17,7 @@ export class AuthenticationComponent {
 
   helloWorld() {
     this.http
-      .get('http://localhost:8080/helloworld', { responseType: 'text' })
+      .get(`${environment.backendUrl}/helloworld`, { responseType: 'text' })
       .subscribe((data) => {
         this.text = data;
       });
