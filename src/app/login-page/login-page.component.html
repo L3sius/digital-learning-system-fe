@@ -1,0 +1,86 @@
+<div
+  class="container-fluid"
+  style="padding: 0; margin: 0; height: 100vh; overflow-x: hidden"
+>
+  <div class="row h-100" style="margin-right: 0; margin-left: 0">
+    <!-- Left Side (70%) for Image -->
+    <div
+      class="col-md-8"
+      style="
+        background-image: url('./assets/images/studying.png');
+        background-size: cover;
+        background-position: center;
+        padding: 0;
+      "
+    ></div>
+
+    <!-- Right Side (30%) for Login Form -->
+    <div
+      class="col-md-4 d-flex align-items-center justify-content-center"
+      style="padding: 0"
+    >
+      <div class="login-form" style="width: 80%; max-width: 400px">
+        <p style="font-weight: 500; font-size: 30px">Prisijungti</p>
+        <p style="margin-bottom: 0">Jeigu neturite paskyros:</p>
+        <a id="create-account" href="path_to_registration"
+          >Susikurti paskyrą!</a
+        >
+
+        <form style="padding-top: 50px">
+          <!-- Email Field -->
+          <label for="emailInput" class="form-label">El. Paštas</label>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="emailIcon"
+              ><i class="bi bi-envelope"></i
+            ></span>
+            <input
+              type="email"
+              class="form-control"
+              id="emailInput"
+              name="email"
+              placeholder="El. Paštas"
+              aria-describedby="emailIcon"
+            />
+          </div>
+          <!-- Password Field -->
+          <label for="passwordInput" class="form-label">Slaptažodis</label>
+          <div class="input-group mb-3 position-relative">
+            <span class="input-group-text" id="passwordIcon"
+              ><i class="bi bi-lock"></i
+            ></span>
+            <input
+              type="password"
+              class="form-control"
+              id="passwordInput"
+              [(ngModel)]="password"
+              [type]="showPassword ? 'text' : 'password'"
+              name="password"
+              placeholder="Slaptažodis"
+              aria-describedby="passwordIcon"
+            />
+            <span
+              class="position-absolute toggle-password-icon"
+              (click)="togglePasswordVisibility()"
+            >
+              <i
+                class="bi"
+                [class.bi-eye-slash]="!showPassword"
+                [class.bi-eye]="showPassword"
+              ></i>
+            </span>
+          </div>
+
+          <!-- Reset Password -->
+          <div style="text-align: right" class="mb-3">
+            <a id="forgot-password" href="path_to_reset_password"
+              >Pamiršote slaptažodį?</a
+            >
+          </div>
+          <button type="submit" id="login-button" class="btn w-100 btn-primary">
+            Prisijungti
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

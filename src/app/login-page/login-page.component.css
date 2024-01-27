@@ -1,0 +1,40 @@
+.toggle-password-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.toggle-password-icon i {
+  font-size: 1.25rem;
+}
+
+#create-account {
+  color: #05a42f;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  margin-bottom: 3;
+  text-decoration: none;
+}
+
+#forgot-password {
+  color: #000;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  text-decoration: none;
+}
+
+#login-button {
+  border-radius: 32px;
+  box-shadow: 0px 4px 26px 0px rgba(0, 0, 0, 0.25);
+  color: #fff;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  height: 50px;
+}
