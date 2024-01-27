@@ -1,1 +1,159 @@
-<p>register-page works!</p>
+<div
+  class="container-fluid"
+  style="padding: 0; margin: 0; height: 100vh; overflow-x: hidden"
+>
+  <div class="row h-100" style="margin-right: 0; margin-left: 0">
+    <!-- Left Side (70%) for Image -->
+    <div
+      class="col-md-8"
+      style="
+        background-image: url('./assets/images/studying.png');
+        background-size: cover;
+        background-position: center;
+        padding: 0;
+      "
+    ></div>
+
+    <!-- Right Side (30%) for Register Form -->
+    <div
+      class="col-md-4 d-flex align-items-center justify-content-center"
+      style="padding: 0"
+    >
+      <div class="register-form" style="width: 80%; max-width: 400px">
+        <p style="font-weight: 500; font-size: 30px">Registracija</p>
+        <p style="margin-bottom: 0">Jeigu jau turite paskyrą:</p>
+        <a class="green-hyperlink" routerLink="/">Prisijunkite!</a>
+
+        <form style="padding-top: 50px">
+          <!-- Email Field -->
+          <label for="emailInput" class="form-label">El. Paštas</label>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="emailIcon"
+              ><i class="bi bi-envelope"></i
+            ></span>
+            <input
+              type="email"
+              class="form-control"
+              id="emailInput"
+              name="email"
+              placeholder="El. Paštas"
+              aria-describedby="emailIcon"
+            />
+          </div>
+          <!-- Name Field -->
+          <label for="nameInput" class="form-label">Vardas</label>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="nameIcon"
+              ><i class="bi bi-person"></i
+            ></span>
+            <input
+              type="name"
+              class="form-control"
+              id="nameInput"
+              name="name"
+              placeholder="Vardas"
+              aria-describedby="nameIcon"
+            />
+          </div>
+          <!-- Surname Field -->
+          <label for="surnameInput" class="form-label">Pavardė</label>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="surnameIcon"
+              ><i class="bi bi-person"></i
+            ></span>
+            <input
+              type="name"
+              class="form-control"
+              id="surnameInput"
+              name="surname"
+              placeholder="Pavardė"
+              aria-describedby="surnameIcon"
+            />
+          </div>
+          <!-- Password Field -->
+          <label for="passwordInput" class="form-label">Slaptažodis</label>
+          <div class="input-group mb-3 position-relative">
+            <span class="input-group-text" id="passwordIcon"
+              ><i class="bi bi-lock"></i
+            ></span>
+            <input
+              type="password"
+              class="form-control"
+              id="passwordInput"
+              [(ngModel)]="password"
+              [type]="showPassword ? 'text' : 'password'"
+              name="password"
+              placeholder="Slaptažodis"
+              aria-describedby="passwordIcon"
+            />
+            <span
+              class="position-absolute toggle-password-icon"
+              (click)="togglePasswordVisibility()"
+            >
+              <i
+                class="bi"
+                [class.bi-eye-slash]="!showPassword"
+                [class.bi-eye]="showPassword"
+              ></i>
+            </span>
+          </div>
+
+          <!-- Password Confirm Field -->
+          <label for="confirmPasswordInput" class="form-label"
+            >Pakartoti slaptažodį</label
+          >
+          <div class="input-group mb-3 position-relative">
+            <span class="input-group-text" id="confirmPasswordIcon">
+              <i class="bi bi-lock"></i>
+            </span>
+            <input
+              type="password"
+              class="form-control"
+              id="confirmPasswordInput"
+              [(ngModel)]="confirmPassword"
+              [type]="showConfirmPassword ? 'text' : 'password'"
+              name="confirmPassword"
+              placeholder="Pakartoti slaptažodį"
+              aria-describedby="confirmPasswordIcon"
+            />
+            <span
+              class="position-absolute toggle-password-icon"
+              (click)="toggleConfirmPasswordVisibility()"
+            >
+              <i
+                class="bi"
+                [class.bi-eye-slash]="!showConfirmPassword"
+                [class.bi-eye]="showConfirmPassword"
+              ></i>
+            </span>
+          </div>
+          <!-- Class Dropdown-->
+          <div class="mb-3">
+            <label for="classDropdown" class="form-label"
+              >Pasirinkite klasę</label
+            >
+            <select
+              class="form-select"
+              id="classDropdown"
+              [(ngModel)]="selectedClass"
+              name="class"
+            >
+              <option default value="9">9 klasė</option>
+              <option value="10">10 klasė</option>
+            </select>
+          </div>
+
+          <!-- Reset Password -->
+          <div style="text-align: right" class="mb-3">
+            <a class="forgot-password" routerLink="/forgot-password"
+              >Pamiršote slaptažodį?</a
+            >
+          </div>
+          <button type="submit" class="btn w-100 btn-primary green-button">
+            Registruotis
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
