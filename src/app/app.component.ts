@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
 import { AuthenticationComponent } from './authentication/authentication.component';
-import { LoginPageComponent } from './login-page/login-page.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { RegisterPageComponent } from './pages/register-page/register-page.component';
+import { RouterLink, RouterModule, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +11,11 @@ import { LoginPageComponent } from './login-page/login-page.component';
   imports: [
     CommonModule,
     RouterOutlet,
+    RouterLink,
+    RouterModule,
     AuthenticationComponent,
     LoginPageComponent,
+    RegisterPageComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
