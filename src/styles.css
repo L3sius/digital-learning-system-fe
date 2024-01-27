@@ -49,3 +49,9 @@
   line-height: normal;
   text-decoration: none;
 }
+
+.invalid-field {
+  color: red; /* Text color for error messages */
+  font-size: 14px; /* Font size for error messages */
+  margin-top: 4px; /* Spacing between input and error message */
+}

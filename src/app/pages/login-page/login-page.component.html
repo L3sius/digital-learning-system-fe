@@ -24,7 +24,11 @@
         <p style="margin-bottom: 0">Jeigu neturite paskyros:</p>
         <a class="green-hyperlink" routerLink="/register">Susikurti paskyrą!</a>
 
-        <form style="padding-top: 50px">
+        <form
+          [formGroup]="loginForm"
+          (ngSubmit)="onLoginClick()"
+          style="padding-top: 50px"
+        >
           <!-- Email Field -->
           <label for="emailInput" class="form-label">El. Paštas</label>
           <div class="input-group mb-3">
@@ -35,10 +39,25 @@
               type="email"
               class="form-control"
               id="emailInput"
-              name="email"
+              formControlName="email"
               placeholder="El. Paštas"
               aria-describedby="emailIcon"
+              required
             />
+          </div>
+          <div
+            class="invalid-field"
+            *ngIf="
+              loginForm.get('email')?.invalid &&
+              (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)
+            "
+          >
+            <div *ngIf="loginForm.get('email')?.hasError('required')">
+              El. paštas yra reikalingas.
+            </div>
+            <div *ngIf="loginForm.get('email')?.hasError('email')">
+              Patikrinkite el. pašto adresą.
+            </div>
           </div>
           <!-- Password Field -->
           <label for="passwordInput" class="form-label">Slaptažodis</label>
@@ -50,11 +69,10 @@
               type="password"
               class="form-control"
               id="passwordInput"
-              [(ngModel)]="password"
-              [type]="showPassword ? 'text' : 'password'"
-              name="password"
+              formControlName="password"
               placeholder="Slaptažodis"
               aria-describedby="passwordIcon"
+              required
             />
             <span
               class="position-absolute toggle-password-icon"
@@ -66,6 +84,18 @@
                 [class.bi-eye]="showPassword"
               ></i>
             </span>
+          </div>
+          <div
+            class="invalid-field"
+            *ngIf="
+              loginForm.get('password')?.invalid &&
+              (loginForm.get('password')?.dirty ||
+                loginForm.get('password')?.touched)
+            "
+          >
+            <div *ngIf="loginForm.get('password')?.hasError('required')">
+              Slaptažodis yra reikalingas.
+            </div>
           </div>
 
           <!-- Reset Password -->
