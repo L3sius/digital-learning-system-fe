@@ -1,0 +1,25 @@
+.image-section {
+  height: 500px; /* Set the desired height */
+  overflow: hidden; /* Ensure image doesn't overflow */
+}
+
+.header-image {
+  width: 100%; /* Fill the container width */
+  height: 100%; /* Fill the container height */
+}
+
+.bottom-half {
+  display: flex;
+}
+
+.left-column {
+  width: 20%; /* Take up 20% of the space */
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.right-column {
+  width: 80%; /* Take up 80% of the space */
+  margin-top: 20px;
+}

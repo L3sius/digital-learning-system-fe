@@ -24,7 +24,11 @@
         <p style="margin-bottom: 0">Jeigu jau turite paskyrą:</p>
         <a class="green-hyperlink" routerLink="/">Prisijunkite!</a>
 
-        <form style="padding-top: 50px">
+        <form
+          [formGroup]="registerForm"
+          (ngSubmit)="onRegisterClick()"
+          style="padding-top: 50px"
+        >
           <!-- Email Field -->
           <label for="emailInput" class="form-label">El. Paštas</label>
           <div class="input-group mb-3">
@@ -36,9 +40,26 @@
               class="form-control"
               id="emailInput"
               name="email"
+              formControlName="email"
               placeholder="El. Paštas"
               aria-describedby="emailIcon"
+              required
             />
+          </div>
+          <div
+            class="invalid-field"
+            *ngIf="
+              registerForm.get('email')?.invalid &&
+              (registerForm.get('email')?.dirty ||
+                registerForm.get('email')?.touched)
+            "
+          >
+            <div *ngIf="registerForm.get('email')?.hasError('required')">
+              El. paštas yra reikalingas.
+            </div>
+            <div *ngIf="registerForm.get('email')?.hasError('email')">
+              Patikrinkite el. pašto adresą.
+            </div>
           </div>
           <!-- Name Field -->
           <label for="nameInput" class="form-label">Vardas</label>
@@ -51,9 +72,23 @@
               class="form-control"
               id="nameInput"
               name="name"
+              formControlName="name"
               placeholder="Vardas"
               aria-describedby="nameIcon"
+              required
             />
+          </div>
+          <div
+            class="invalid-field"
+            *ngIf="
+              registerForm.get('name')?.invalid &&
+              (registerForm.get('name')?.dirty ||
+                registerForm.get('name')?.touched)
+            "
+          >
+            <div *ngIf="registerForm.get('name')?.hasError('required')">
+              Vardas yra reikalingas.
+            </div>
           </div>
           <!-- Surname Field -->
           <label for="surnameInput" class="form-label">Pavardė</label>
@@ -66,9 +101,23 @@
               class="form-control"
               id="surnameInput"
               name="surname"
+              formControlName="surname"
               placeholder="Pavardė"
               aria-describedby="surnameIcon"
+              required
             />
+          </div>
+          <div
+            class="invalid-field"
+            *ngIf="
+              registerForm.get('surname')?.invalid &&
+              (registerForm.get('surname')?.dirty ||
+                registerForm.get('surname')?.touched)
+            "
+          >
+            <div *ngIf="registerForm.get('surname')?.hasError('required')">
+              Pavardė yra reikalinga.
+            </div>
           </div>
           <!-- Password Field -->
           <label for="passwordInput" class="form-label">Slaptažodis</label>
@@ -80,11 +129,12 @@
               type="password"
               class="form-control"
               id="passwordInput"
-              [(ngModel)]="password"
               [type]="showPassword ? 'text' : 'password'"
               name="password"
+              formControlName="password"
               placeholder="Slaptažodis"
               aria-describedby="passwordIcon"
+              required
             />
             <span
               class="position-absolute toggle-password-icon"
@@ -97,7 +147,21 @@
               ></i>
             </span>
           </div>
-
+          <div
+            class="invalid-field"
+            *ngIf="
+              registerForm.get('password')?.invalid &&
+              (registerForm.get('password')?.dirty ||
+                registerForm.get('password')?.touched)
+            "
+          >
+            <div *ngIf="registerForm.get('password')?.hasError('required')">
+              Slaptažodis yra reikalingas.
+            </div>
+            <div *ngIf="registerForm.get('password')?.hasError('minlength')">
+              Slaptažodis turi būti bent 6 simbolių ilgio.
+            </div>
+          </div>
           <!-- Password Confirm Field -->
           <label for="confirmPasswordInput" class="form-label"
             >Pakartoti slaptažodį</label
@@ -110,11 +174,12 @@
               type="password"
               class="form-control"
               id="confirmPasswordInput"
-              [(ngModel)]="confirmPassword"
               [type]="showConfirmPassword ? 'text' : 'password'"
               name="confirmPassword"
+              formControlName="confirmPassword"
               placeholder="Pakartoti slaptažodį"
               aria-describedby="confirmPasswordIcon"
+              required
             />
             <span
               class="position-absolute toggle-password-icon"
@@ -127,6 +192,29 @@
               ></i>
             </span>
           </div>
+          <div
+            class="invalid-field"
+            *ngIf="
+              registerForm.get('confirmPassword')?.invalid &&
+              (registerForm.get('confirmPassword')?.dirty ||
+                registerForm.get('confirmPassword')?.touched)
+            "
+          >
+            <div
+              *ngIf="registerForm.get('confirmPassword')?.hasError('required')"
+            >
+              Patvirtinkite slaptažodį.
+            </div>
+            <div
+              *ngIf="
+                registerForm
+                  .get('confirmPassword')
+                  ?.hasError('passwordMismatch')
+              "
+            >
+              Slaptažodžiai turi sutapti.
+            </div>
+          </div>
           <!-- Class Dropdown-->
           <div class="mb-3">
             <label for="classDropdown" class="form-label"
@@ -135,21 +223,36 @@
             <select
               class="form-select"
               id="classDropdown"
-              [(ngModel)]="selectedClass"
+              formControlName="grade"
               name="class"
             >
-              <option default value="9">9 klasė</option>
-              <option value="10">10 klasė</option>
+              <option value="9th grade">9 klasė</option>
+              <option value="10th grade">10 klasė</option>
             </select>
           </div>
-
+          <div
+            class="invalid-field"
+            *ngIf="
+              registerForm.get('classroom')?.invalid &&
+              (registerForm.get('classroom')?.dirty ||
+                registerForm.get('classroom')?.touched)
+            "
+          >
+            <div *ngIf="registerForm.get('classroom')?.hasError('required')">
+              Klasė yra reikalinga.
+            </div>
+          </div>
           <!-- Reset Password -->
           <div style="text-align: right" class="mb-3">
             <a class="forgot-password" routerLink="/forgot-password"
               >Pamiršote slaptažodį?</a
             >
           </div>
-          <button type="submit" class="btn w-100 btn-primary green-button">
+          <button
+            type="submit"
+            [disabled]="registerForm.invalid"
+            class="btn w-100 btn-primary green-button"
+          >
             Registruotis
           </button>
         </form>

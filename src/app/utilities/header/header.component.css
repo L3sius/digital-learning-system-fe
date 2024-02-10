@@ -1,0 +1,23 @@
+.header-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 10px 20px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  height: 80px; /* Adjust the height as needed */
+}
+
+.icon {
+  cursor: pointer;
+  margin-right: 20px;
+  color: #05a42f;
+  font-size: 32px;
+  width: 32px;
+  height: 32px;
+  margin-left: 10px; /* Adjust as needed */
+}
+
+.icon:hover {
+  color: #4caf50; /* Change color on hover */
+}

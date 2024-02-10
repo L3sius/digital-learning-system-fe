@@ -1,1 +1,30 @@
-<h1>Work in progress</h1>
+<!-- Header -->
+<app-header></app-header>
+
+<!-- Image Section -->
+<div class="image-section">
+  <img
+    src="./assets/images/croppedStudying.png"
+    class="header-image"
+    alt="Image"
+  />
+</div>
+
+<!-- Bottom Half -->
+<div class="bottom-half">
+  <div class="left-column">
+    <select
+      class="form-select"
+      id="classDropdown"
+      name="class"
+      (change)="onClassSelectionChange($event)"
+    >
+      <option value="9-1">9 klasė - pirmas testas</option>
+      <option value="9-2">9 klasė - antras testas</option>
+      <option value="10-1">10 klasė - pirmas testas</option>
+      <option value="10-2">10 klasė - antras testas</option>
+    </select>
+  </div>
+
+  <div class="right-column">Testas {{ selectedGrade }}</div>
+</div>

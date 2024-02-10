@@ -104,7 +104,11 @@
               >Pamiršote slaptažodį?</a
             >
           </div>
-          <button type="submit" class="btn w-100 btn-primary green-button">
+          <button
+            type="submit"
+            [disabled]="loginForm.invalid"
+            class="btn w-100 btn-primary green-button"
+          >
             Prisijungti
           </button>
         </form>
