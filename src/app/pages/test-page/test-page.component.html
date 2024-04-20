@@ -1,0 +1,17 @@
+<!-- Header -->
+<app-header></app-header>
+
+<!-- test-page.component.html -->
+<div class="questions-container">
+    <div *ngFor="let question of selectedQuestions; let i = index" class="question">
+        <h3>{{ question.question }}</h3>
+        <div *ngFor="let answer of question.answers; let j = index" class="answers"
+             [ngClass]="{'correct-answer': testSubmitted && correctAnswers[i] && j === question.correctIndex,
+             'incorrect-answer': testSubmitted && !correctAnswers[i] && j === selectedAnswers[i]}">
+          <input style="margin-right: 10px;" type="radio" name="question{{ i }}" [value]="j" (change)="selectAnswer(i, j)" [disabled]="testSubmitted">
+          <label class="answer-label">{{ answer }}</label>
+        </div>
+      </div>
+  
+  <button class="btn w-30 green-button"  [disabled]="!isAllAnswered()" (click)="onSubmit()">{{ testSubmitted ? 'Grįžti į pradinį puslapį' : 'Užbaigti testą' }}</button>
+</div>

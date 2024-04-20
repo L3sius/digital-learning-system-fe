@@ -9,6 +9,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ErrorModalComponent } from './utilities/error-modal/error-modal.component';
 import { MatIconModule } from '@angular/material/icon';
 import { HeaderComponent } from './utilities/header/header.component';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -25,6 +27,7 @@ import { HeaderComponent } from './utilities/header/header.component';
     ErrorModalComponent,
     MatIconModule,
     HeaderComponent,
+    FormsModule
   ],
   providers: [HttpClientModule, AuthService],
   templateUrl: './app.component.html',

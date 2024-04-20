@@ -45,16 +45,9 @@ export class LoginPageComponent {
 
   onLoginClick() {
     const formData = this.loginForm.value;
-    console.log(this.loginForm.get('email'));
-    console.log(this.loginForm.get('email')?.hasError('required'));
     if (this.loginForm.invalid) {
-      console.log('Form is invalid');
-      console.log('Email:', formData.email);
-      console.log('Password:', formData.password);
       return;
     }
-    console.log('Email:', formData.email);
-    console.log('Password:', formData.password);
 
     this.authService.login(formData.email, formData.password).subscribe({
       next: (data) => {

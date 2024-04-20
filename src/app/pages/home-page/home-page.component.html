@@ -17,14 +17,23 @@
       class="form-select"
       id="classDropdown"
       name="class"
-      (change)="onClassSelectionChange($event)"
+      (change)="onSelect($event)"
     >
-      <option value="9-1">9 klasė - pirmas testas</option>
-      <option value="9-2">9 klasė - antras testas</option>
-      <option value="10-1">10 klasė - pirmas testas</option>
-      <option value="10-2">10 klasė - antras testas</option>
+      <option value="9-1">9 klasė - Kintamieji</option>
+      <option disabled value="9-2">9 klasė - Sąlygos Sakiniai</option>
+      <option value="10-1">10 klasė - Ciklai</option>
+      <option disabled value="10-2">10 klasė - Nuskaitymas iš failo</option>
     </select>
   </div>
 
-  <div class="right-column">Testas {{ selectedGrade }}</div>
+  <div class="right-column">
+    <h1>Testas - {{ selectedTitle }}</h1>
+    <p> {{ selectedDescription }} </p>
+    <button
+    (click)="redirectToTest()"
+    class="btn w-30 btn-primary green-button"
+  >
+    Pradėti testą
+  </button>
+  </div>
 </div>

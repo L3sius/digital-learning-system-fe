@@ -1,0 +1,127 @@
+{
+    "9-1": {
+      "testName": "Testas 1: Kintamųjų naudojimas",
+      "questions": [
+        {
+          "question": "Koks kintamojo tipas naudojamas saugoti sveiką skaičių C++ kalboje?",
+          "answers": ["int", "double", "string"],
+          "correctIndex": 0
+        },
+        {
+          "question": "Kaip apibrėžiama kintamojo reikšmė, kuri saugo skaičių su kableliu?",
+          "answers": ["int", "double", "string"],
+          "correctIndex": 1
+        },
+        {
+          "question": "Kokia yra tinkama C++ kodo eilutė, kuri apibrėžia kintamąjį x, saugantį teksto eilutę?",
+          "answers": ["int x;", "double x;", "string x;"],
+          "correctIndex": 2
+        },
+        {
+          "question": "Kaip galima priskirti reikšmę kintamajam tipu string?",
+          "answers": ["x = Iki;", "x = 3.14;", "x = \"Labas\";"],
+          "correctIndex": 2
+        },
+        {
+          "question": "Koks kintamojo tipas naudojamas saugoti simbolių eilutę C++ kalboje?",
+          "answers": ["int", "char", "string"],
+          "correctIndex": 2
+        },
+        {
+          "question": "Kaip galima apibrėžti kintamąjį tipo double, kurio pradinė reikšmė yra 3.14?",
+          "answers": ["double x = 3.14;", "x = 3.14;", "double x(3.14);"],
+          "correctIndex": 0
+        },
+        {
+          "question": "Kokia komanda leidžiama nuskaityti vartotojo įvestą tekstą į kintamąjį tipo string?",
+          "answers": ["cin >> x;", "cout >> x;", "getline(cin, x);"],
+          "correctIndex": 2
+        },
+        {
+          "question": "Kokia komanda leidžiama išvesti teksto eilutę į konsolę C++ kalboje?",
+          "answers": ["cout << x;", "output << x;", "cout >> x;"],
+          "correctIndex": 0
+        },
+        {
+          "question": "Kaip galima priskirti reikšmę kintamajam tipo int?",
+          "answers": ["x = 3.14;", "x = \"Hello\";", "x = 10;"],
+          "correctIndex": 2
+        },
+        {
+          "question": "Kaip galima sužinoti teksto eilutės ilgį C++ kalboje?",
+          "answers": ["length(x);", "size(x);", "x.length();"],
+          "correctIndex": 2
+        }
+      ]
+    },
+    "10-1": {
+        "testName": "Testas 1: Ciklai",
+        "questions": [
+          {
+            "question": "Koks yra pirmasis žingsnis įvedant while ciklą C++ kalboje?",
+            "answers": ["while", "for", "do"],
+            "correctIndex": 0
+          },
+          {
+            "question": "Koks yra skirtumas tarp 'while' ir 'do-while' ciklų?",
+            "answers": ["'while' ciklas vykdomas bent kartą, net jei sąlyga pradinėje vietoje yra neteisinga", "'do-while' ciklas nevykdomas, jei sąlyga pradinėje vietoje yra neteisinga", "Skirtumo nėra"],
+            "correctIndex": 0
+          },
+          {
+            "question": "Koks yra pirmasis žingsnis įvedant for ciklą C++ kalboje?",
+            "answers": ["while", "for", "do"],
+            "correctIndex": 1
+          },
+          {
+            "question": "Kiek kartų vykdomas 'do-while' ciklas, jei sąlyga yra neteisinga pradinėje vietoje?",
+            "answers": ["Niekada", "Vieną kartą", "Kol sąlyga tampa teisinga"],
+            "correctIndex": 1
+          },
+          {
+            "question": "Kaip baigiasi ciklo for sąlyga?",
+            "answers": [";", "{", "}"],
+            "correctIndex": 0
+          },
+          {
+            "question": "Ką reiškia 'break' komanda cikle?",
+            "answers": ["Priverstinai nutraukia ciklo vykdymą", "Pereina į kitą ciklo iteraciją", "Sustabdo programos vykdymą"],
+            "correctIndex": 0
+          },
+          {
+            "question": "Ką reiškia 'continue' komanda cikle?",
+            "answers": ["Pereina į kitą ciklo iteraciją", "Priverstinai nutraukia ciklo vykdymą", "Tęsia programos vykdymą"],
+            "correctIndex": 0
+          },
+          {
+            "question": "Kaip inicijuojamas kintamasis ciklo for pradžioje?",
+            "answers": ["int i = 0;", "i = 0;", "start: 0;"],
+            "correctIndex": 0
+          },
+          {
+            "question": "Kas atliekama po kiekvienos ciklo iteracijos?",
+            "answers": ["Atnaujinamas sąlygos tikrinimas", "Priskiriamos naujos kintamųjų reikšmės", "Pereinama į kitą ciklą"],
+            "correctIndex": 0
+          },
+          {
+            "question": "Kas įvykdoma paskutinėje ciklo iteracijoje?",
+            "answers": ["Atnaujinamas sąlygos tikrinimas", "Priskiriamos naujos kintamųjų reikšmės", "Programa baigia vykdyti ciklą"],
+            "correctIndex": 1
+          },   
+          {
+            "question": "Koks bus rezultatas 'for' ciklo vykdymo: for(int i = 0; i < 3; i++) {}?",
+            "answers": ["3", "2", "4"],
+            "correctIndex": 0
+          },
+          {
+            "question": "Ką reiškia 'i = i + 2' for cikle, pradedant i = 0?",
+            "answers": ["Ciklas nevyks", "Ciklas vyks 2 kartus", "Ciklas nebegalės būti nutrauktas"],
+            "correctIndex": 1
+          },
+          {
+            "question": "Kiek kartų vyks 'while' ciklas, jei pradinė sąlyga yra neteisinga?",
+            "answers": ["Niekada", "Vieną kartą", "Neribotai"],
+            "correctIndex": 0
+          }
+        ]
+      }
+  }
