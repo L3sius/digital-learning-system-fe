@@ -64,7 +64,7 @@
           },
           {
             "question": "Koks yra skirtumas tarp 'while' ir 'do-while' ciklų?",
-            "answers": ["'while' ciklas vykdomas bent kartą, net jei sąlyga pradinėje vietoje yra neteisinga", "'do-while' ciklas nevykdomas, jei sąlyga pradinėje vietoje yra neteisinga", "Skirtumo nėra"],
+            "answers": ["'do-while' ciklas vykdomas bent kartą, net jei sąlyga pradinėje vietoje yra neteisinga", "'while' ciklas vykdomas bent kartą, jei sąlyga pradinėje vietoje yra neteisinga", "Skirtumo nėra"],
             "correctIndex": 0
           },
           {
@@ -78,9 +78,9 @@
             "correctIndex": 1
           },
           {
-            "question": "Kaip baigiasi ciklo for sąlyga?",
+            "question": "Kokiu simboliu baigiasi ciklo for kodo blokas?",
             "answers": [";", "{", "}"],
-            "correctIndex": 0
+            "correctIndex": 2
           },
           {
             "question": "Ką reiškia 'break' komanda cikle?",
@@ -99,23 +99,18 @@
           },
           {
             "question": "Kas atliekama po kiekvienos ciklo iteracijos?",
-            "answers": ["Atnaujinamas sąlygos tikrinimas", "Priskiriamos naujos kintamųjų reikšmės", "Pereinama į kitą ciklą"],
+            "answers": ["Atnaujinamas sąlygos tikrinimas", "Atlaisvinama atminties vieta", "Pereinama į kitą ciklą"],
             "correctIndex": 0
           },
           {
-            "question": "Kas įvykdoma paskutinėje ciklo iteracijoje?",
+            "question": "Kas įvyksta paskutinėje ciklo iteracijoje?",
             "answers": ["Atnaujinamas sąlygos tikrinimas", "Priskiriamos naujos kintamųjų reikšmės", "Programa baigia vykdyti ciklą"],
-            "correctIndex": 1
+            "correctIndex": 2
           },   
           {
-            "question": "Koks bus rezultatas 'for' ciklo vykdymo: for(int i = 0; i < 3; i++) {}?",
+            "question": "Kiek kartų suksis šis ciklas: for(int i = 0; i < 3; i++) {}?",
             "answers": ["3", "2", "4"],
             "correctIndex": 0
-          },
-          {
-            "question": "Ką reiškia 'i = i + 2' for cikle, pradedant i = 0?",
-            "answers": ["Ciklas nevyks", "Ciklas vyks 2 kartus", "Ciklas nebegalės būti nutrauktas"],
-            "correctIndex": 1
           },
           {
             "question": "Kiek kartų vyks 'while' ciklas, jei pradinė sąlyga yra neteisinga?",
