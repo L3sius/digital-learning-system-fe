@@ -51,8 +51,8 @@ export class LoginPageComponent {
 
     this.authService.login(formData.email, formData.password).subscribe({
       next: (data) => {
-        console.log(data);
         this.authService.storeAuthToken(data);
+        this.authService.saveUserEmail(formData.email);
         this.router.navigate(['/home']);
       },
       error: (e) => {

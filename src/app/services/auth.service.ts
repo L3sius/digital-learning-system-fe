@@ -7,6 +7,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root',
 })
 export class AuthService {
+  private userEmailKey = 'userEmail';
   constructor(private http: HttpClient) {}
 
   login(email: string, password: string): Observable<string> {
@@ -41,5 +42,13 @@ export class AuthService {
 
   storeAuthToken(token: string): void {
     localStorage.setItem('authToken', token);
+  }
+
+  saveUserEmail(email: string): void {
+    localStorage.setItem(this.userEmailKey, email);
+  }
+
+  getUserEmail(): string | null {
+    return localStorage.getItem(this.userEmailKey);
   }
 }

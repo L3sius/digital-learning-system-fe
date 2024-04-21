@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HeaderComponent } from '../../utilities/header/header.component';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { ResultsService } from '../../services/results.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-test-page',
@@ -19,16 +21,14 @@ export class TestPageComponent implements OnInit {
   selectedAnswers: number[] = Array(5).fill(-1);
   correctAnswers: boolean[] = [];
   testSubmitted: boolean = false;
+  currentDate: string = "";
 
 
-  constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router) { }
+  constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router, private resultsService: ResultsService, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.selectedValue = params['selectedValue'];
-      /*if (this.selectedValue) {
-        this.loadTestData(this.selectedValue);
-      }*/
     });
 
     this.http.get<any>('assets/questions.json').subscribe(data => {
@@ -39,7 +39,6 @@ export class TestPageComponent implements OnInit {
         this.selectedQuestions = this.getRandomQuestions(this.questions, 5);
       } else {
         console.error('Invalid test data format');
-        // Handle invalid test data format here
       }
     });
   }
@@ -50,17 +49,13 @@ export class TestPageComponent implements OnInit {
   }
 
   shuffleArray(array: any[]): any[] {
-    // Implementation of Fisher-Yates shuffle algorithm
     let currentIndex = array.length;
     let temporaryValue, randomIndex;
 
-    // While there remain elements to shuffle...
     while (currentIndex !== 0) {
-      // Pick a remaining element...
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex -= 1;
 
-      // And swap it with the current element.
       temporaryValue = array[currentIndex];
       array[currentIndex] = array[randomIndex];
       array[randomIndex] = temporaryValue;
@@ -80,6 +75,7 @@ export class TestPageComponent implements OnInit {
   onSubmit(): void {
     if (this.testSubmitted) {
       this.router.navigate(['/home']);
+      return;
     }
 
     let correctCount = 0;
@@ -95,7 +91,17 @@ export class TestPageComponent implements OnInit {
       return question.correctIndex === this.selectedAnswers[index];
     });
 
-    this.testSubmitted = true;
     console.log('Correctly marked answers:', correctCount);
+
+    this.currentDate = new Date().toLocaleString('lt-LT', { dateStyle: 'full', timeStyle: 'medium', timeZone: 'Europe/Vilnius' });
+    this.resultsService.saveResults(this.authService.getUserEmail(), correctCount.toString(), this.currentDate, this.testName).subscribe({
+      next: (data) => {
+        this.testSubmitted = true;
+        //TODO: Implement result modal
+      },
+      error: (e) => {
+        console.log(e);
+      },
+    });
   }
 }

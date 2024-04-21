@@ -1,0 +1,74 @@
+.settings-container {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    gap: 20px;
+  }
+  
+  .left-column {
+    padding: 20px;
+  }
+  
+  .right-column {
+    padding: 20px;
+    margin-right: 20px; 
+  }
+  
+  .about-us-section {
+    margin-top: 20px;
+  }
+  
+  /* settings.component.css */
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-family: Arial, sans-serif;
+    color: #333; /* Text color */
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd; /* Table border color */
+  }
+  
+  th {
+    background-color: #05a42f; /* Header background color */
+    color: white; /* Header text color */
+  }
+  
+  /* Hover effect for table rows */
+  tr:hover {
+    background-color: #f5f5f5; /* Hover background color */
+  }
+  
+  /* Odd rows background color */
+  tr:nth-child(odd) {
+    background-color: #f9f9f9; /* Odd rows background color */
+  }
+  
+  /* Input field and button styles */
+  input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    background-color: #05a42f;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #048324; /* Darker shade of green */
+  }
+  

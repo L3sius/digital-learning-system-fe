@@ -1,4 +1,39 @@
 <!-- Header -->
 <app-header></app-header>
 
-<h1> Work in Progress </h1>
+<div class="settings-container">
+    <!-- Left column (70%) -->
+    <div class="left-column">
+      <h2>Testų rezultatai</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Testas</th>
+            <th>Rezultatas</th>
+            <th>Data</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let result of userTestResults">
+            <td>{{ result.testName }}</td>
+            <td>{{ result.score }}</td>
+            <td>{{ result.date }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- Right column (30%) -->
+    <div class="right-column">
+      <h2>Labas, {{ fullName }}!</h2>
+      <p>El. paštas</p>
+      <input type="email" disabled [(ngModel)]="userEmail" placeholder="{{ userEmail }}">
+      <button [disabled]="isButtonDisabled" (click)="changeEmail()">Pakeisti paštą</button>
+      <div class="about-us-section">
+        <h3>Apie puslapį</h3>
+        <p>Šiame puslapyje galite stebėti buvusių testų rezultatus. Ateityje bus pridėta galimybė filtruoti testo rezultatus, peržiūrėti senuosius, pasikeisti paskyros duomenis.</p>
+      </div>
+    </div>
+  </div>
+  
+  

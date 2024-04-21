@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { HeaderComponent } from './utilities/header/header.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { ResultsService } from './services/results.service';
 
 @Component({
   selector: 'app-root',
@@ -29,7 +30,7 @@ import { BrowserModule } from '@angular/platform-browser';
     HeaderComponent,
     FormsModule
   ],
-  providers: [HttpClientModule, AuthService],
+  providers: [HttpClientModule, AuthService, ResultsService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
