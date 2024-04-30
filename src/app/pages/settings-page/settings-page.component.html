@@ -2,38 +2,62 @@
 <app-header></app-header>
 
 <div class="settings-container">
-    <!-- Left column (70%) -->
-    <div class="left-column">
-      <h2>Testų rezultatai</h2>
-      <table>
-        <thead>
+  <div class="left-column">
+    <h2>Testų rezultatai</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Testas</th>
+          <th>Rezultatas</th>
+          <th>Data</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let result of getCurrentPageData()">
           <tr>
-            <th>Testas</th>
-            <th>Rezultatas</th>
-            <th>Data</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let result of userTestResults">
             <td>{{ result.testName }}</td>
             <td>{{ result.score }}</td>
             <td>{{ result.date }}</td>
           </tr>
-        </tbody>
-      </table>
+        </ng-container>
+      </tbody>
+    </table>
+    <!-- Pagination controls -->
+    <div class="pagination-container">
+      <button class="pagination-button" *ngFor="let page of getPageNumbers()" (click)="loadPage(page)">{{ page
+        }}</button>
     </div>
-  
-    <!-- Right column (30%) -->
-    <div class="right-column">
-      <h2>Labas, {{ fullName }}!</h2>
-      <p>El. paštas</p>
-      <input type="email" disabled [(ngModel)]="userEmail" placeholder="{{ userEmail }}">
-      <button [disabled]="isButtonDisabled" (click)="changeEmail()">Pakeisti paštą</button>
-      <div class="about-us-section">
-        <h3>Apie puslapį</h3>
-        <p>Šiame puslapyje galite stebėti buvusių testų rezultatus. Ateityje bus pridėta galimybė filtruoti testo rezultatus, peržiūrėti senuosius, pasikeisti paskyros duomenis.</p>
-      </div>
+
+  </div>
+
+
+
+  <!-- Right column (30%) -->
+  <div class="right-column">
+    <h2>Labas, {{ fullName }}!</h2>
+    <p>El. paštas</p>
+    <input type="email" disabled [(ngModel)]="userEmail" placeholder="{{ userEmail }}">
+    <button [disabled]="isButtonDisabled" (click)="changeEmail()">Pakeisti paštą</button>
+    <div class="about-us-section">
+      <h3>Apie puslapį</h3>
+      <p>Šiame puslapyje galite stebėti buvusių testų rezultatus. Ateityje bus pridėta galimybė filtruoti testo
+        rezultatus, peržiūrėti senuosius, pasikeisti paskyros duomenis.</p>
     </div>
   </div>
-  
-  
+</div>
+
+<div class="achievement-section">
+  <h2 class="achievement-header">Pasiekimai</h2>
+  <div class="achievements">
+    <div class="achievement" [ngClass]="{'disabled': !isAchievementCompleted(1)}">
+      3 kartus iš eilės pasiektas maksimalus įvertinimas
+    </div>
+    <div class="achievement" [ngClass]="{'disabled': !isAchievementCompleted(2)}">
+      Išspręsta 10 testų
+    </div>
+    <div class="achievement" [ngClass]="{'disabled': !isAchievementCompleted(3)}">
+      Išspręstas testas šiandien
+    </div>
+  </div>
+</div>
+

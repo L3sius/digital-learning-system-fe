@@ -10,8 +10,8 @@ import { ErrorModalComponent } from './utilities/error-modal/error-modal.compone
 import { MatIconModule } from '@angular/material/icon';
 import { HeaderComponent } from './utilities/header/header.component';
 import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
 import { ResultsService } from './services/results.service';
+import { TestFinishModalComponent } from './utilities/test-finish-modal/test-finish-modal.component';
 
 @Component({
   selector: 'app-root',
@@ -28,7 +28,8 @@ import { ResultsService } from './services/results.service';
     ErrorModalComponent,
     MatIconModule,
     HeaderComponent,
-    FormsModule
+    FormsModule,
+    TestFinishModalComponent
   ],
   providers: [HttpClientModule, AuthService, ResultsService],
   templateUrl: './app.component.html',

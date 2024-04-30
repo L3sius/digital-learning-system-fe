@@ -24,6 +24,7 @@ export class HomePageComponent {
   selectedTitle: string = 'Kintamieji';
   selectedDescription: string = 'Šis testas yra sukurtas siekiant įvertinti devintų klasių mokinių žinias apie tris pagrindinius C++ programavimo kalbos kintamuosius: int, double ir string. Testas padės nustatyti, kaip mokiniai supranta skirtingų tipų kintamųjų paskirtį, jų sintaksę ir praktinį jų panaudojimą programuojant.';
   selectedValue: string = '9-1';
+  selectedHref: string = 'https://www.w3schools.com/cpp/cpp_variables.asp';
 
   descriptions: { [key: string]: string } = {
     '9-1': 'Šis testas yra sukurtas siekiant įvertinti devintų klasių mokinių žinias apie tris pagrindinius C++ programavimo kalbos kintamuosius: int, double ir string. Testas padės nustatyti, kaip mokiniai supranta skirtingų tipų kintamųjų paskirtį, jų sintaksę ir praktinį jų panaudojimą programuojant.',
@@ -33,6 +34,11 @@ export class HomePageComponent {
   titles: { [key: string]: string } = {
     '9-1': 'Kintamieji',
     '10-1': 'Ciklai'
+    // Additional keys can be added dynamically if needed
+  };
+  hrefs: { [key: string]: string } = {
+    '9-1': 'https://www.w3schools.com/cpp/cpp_variables.asp',
+    '10-1': 'https://www.w3schools.com/cpp/cpp_for_loop.asp'
     // Additional keys can be added dynamically if needed
   };
 
@@ -46,6 +52,7 @@ export class HomePageComponent {
     this.selectedValue = value;
     this.selectedDescription = this.descriptions[value];
     this.selectedTitle = this.titles[value];
+    this.selectedHref = this.hrefs[value];
   }
 
   redirectToTest(): void {

@@ -5,6 +5,8 @@ import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { ResultsService } from '../../services/results.service';
 import { AuthService } from '../../services/auth.service';
+import { MatDialog } from '@angular/material/dialog';
+import { TestFinishModalComponent } from '../../utilities/test-finish-modal/test-finish-modal.component';
 
 @Component({
   selector: 'app-test-page',
@@ -22,9 +24,10 @@ export class TestPageComponent implements OnInit {
   correctAnswers: boolean[] = [];
   testSubmitted: boolean = false;
   currentDate: string = "";
+  correctCount: number = 0;
 
 
-  constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router, private resultsService: ResultsService, private authService: AuthService) { }
+  constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router, private resultsService: ResultsService, private authService: AuthService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -78,12 +81,12 @@ export class TestPageComponent implements OnInit {
       return;
     }
 
-    let correctCount = 0;
+    //let correctCount = 0;
     for (let i = 0; i < this.selectedQuestions.length; i++) {
       const correctIndex = this.selectedQuestions[i].correctIndex;
       const selectedAnswerIndex = this.selectedAnswers[i];
       if (selectedAnswerIndex === correctIndex) {
-        correctCount++;
+        this.correctCount++;
       }
     }
 
@@ -91,17 +94,23 @@ export class TestPageComponent implements OnInit {
       return question.correctIndex === this.selectedAnswers[index];
     });
 
-    console.log('Correctly marked answers:', correctCount);
+    console.log('Correctly marked answers:', this.correctCount);
 
     this.currentDate = new Date().toLocaleString('lt-LT', { dateStyle: 'full', timeStyle: 'medium', timeZone: 'Europe/Vilnius' });
-    this.resultsService.saveResults(this.authService.getUserEmail(), correctCount.toString(), this.currentDate, this.testName).subscribe({
+    this.resultsService.saveResults(this.authService.getUserEmail(), this.correctCount.toString(), this.currentDate, this.testName).subscribe({
       next: (data) => {
         this.testSubmitted = true;
-        //TODO: Implement result modal
+        this.openTestFinishModal();
       },
       error: (e) => {
         console.log(e);
       },
+    });
+  }
+
+  openTestFinishModal(): void {
+    this.dialog.open(TestFinishModalComponent, {
+      data: { correctCount: this.correctCount } // Pass data to the TestFinishModalComponent
     });
   }
 }
